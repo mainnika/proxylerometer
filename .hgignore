@@ -1,0 +1,15 @@
+syntax: glob
+node_modules/
+
+webapp/js/dist/
+webapp/js/**/*.js
+webapp/js/**/*.js.map
+webapp/js/**/*.d.ts
+
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+
+typings/*/*.d.ts
+
+.idea/

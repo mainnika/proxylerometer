@@ -1,0 +1,28 @@
+{
+  "name": "proxylerometer",
+  "description": "",
+  "main": "",
+  "authors": [
+    "mainnika <nikita@tokarch.uk>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.9",
+    "jquery": "^2.2.0",
+    "sockjs-client": "^1.0.3",
+    "requirejs": "^2.1.22",
+    "bootstrap": "^3.3.6",
+    "domReady": "requirejs-domready#^2.0.1"
+  }
+}
