@@ -9,6 +9,7 @@ require.config({
 		'bootstrap': `dist/bootstrap/dist/js/bootstrap.min.js?${window['buildTimestamp']}`,
 		'sockjs-client': `dist/sockjs-client/dist/sockjs-1.0.3.min.js?${window['buildTimestamp']}`,
 		'domReady': `dist/domReady/domReady.js?${window['buildTimestamp']}`,
+		'wolfy87-eventemitter': `dist/eventEmitter/EventEmitter.min.js?${window['buildTimestamp']}`,
 	},
 
 	shim: {
@@ -25,6 +26,11 @@ require(['angular', 'domReady!', 'lib/app'], function (angular, document, app) {
 
 	angular.module('gamepad-app', []);
 	angular.bootstrap(document, ['gamepad-app']);
+
+	navigator['vibrate'] = navigator['vibrate'] ||
+		navigator['webkitVibrate'] ||
+		navigator['mozVibrate'] ||
+		navigator['msVibrate'];
 
 	app.start();
 });
