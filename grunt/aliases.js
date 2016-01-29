@@ -2,10 +2,19 @@
 
 module.exports = {
 	'scripts': [
-		'typescript'
+		'typescript:app'
+	],
+	'scriptswebapp': [
+		'typescript:webapp'
+	],
+	"markup": [
+		"jade"
+	],
+	"markup-styles": [
+		"build-timestamp",
+		"markup"
 	],
 	'default': [
-		'concurrent',
-		'watch'
+		'concurrent'
 	]
 };

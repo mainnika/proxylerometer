@@ -21,7 +21,7 @@ module.exports = {
 				'typings/tsdweb.d.ts'
 			],
 			removeComments: true,
-			declaration: true,
+			//declaration: true,
 			module: 'amd',
 			target: 'es5',
 			sourceMap: true

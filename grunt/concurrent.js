@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-	all: ['scripts']
+	all: ['scripts', 'scriptswebapp', 'markup-styles']
 };

@@ -7,15 +7,31 @@ module.exports = {
 			reload: true
 		}
 	},
-	scripts: {
+	app: {
 		files: [
 			'<%= typescript.app.src %>',
-			'<%= typescript.webapp.src %>',
-			'./typings/**/*.d.ts',
+			'./typings/**/*.d.ts'
 		],
-		tasks: ['scripts'],
+		tasks: ['scripts:app'],
 		options: {
 			spawn: true
+		}
+	},
+	webapp: {
+		files: [
+			'<%= typescript.webapp.src %>',
+			'./typings/**/*.d.ts'
+		],
+		tasks: ['scripts:webapp'],
+		options: {
+			spawn: true
+		}
+	},
+	'markup-styles': {
+		files: ['webapp/index.jade', 'webapp/includes/**/*.jade'],
+		tasks: ['markup-styles'],
+		options: {
+			spawn: false
 		}
 	}
 };

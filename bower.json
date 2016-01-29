@@ -23,6 +23,7 @@
     "sockjs-client": "^1.0.3",
     "requirejs": "^2.1.22",
     "bootstrap": "^3.3.6",
-    "domReady": "requirejs-domready#^2.0.1"
+    "domReady": "requirejs-domready#^2.0.1",
+    "angular-ui-router": "^0.2.17"
   }
 }
