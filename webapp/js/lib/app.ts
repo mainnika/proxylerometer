@@ -1,4 +1,14 @@
-import * as angular from "angular";
-import {Foo} from "./foo";
+import * as SockJS from "sockjs-client";
 
-//export var app =
+export class App {
+
+	private _socket: __SockJSClient.SockJSClass;
+
+	constructor() {
+		this._socket = new SockJS('//localhost:9000/connect');
+	}
+}
+
+export function start() {
+	new App();
+}

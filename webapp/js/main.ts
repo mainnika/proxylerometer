@@ -7,7 +7,7 @@ require.config({
 		'angular': `dist/angular/angular.min.js?${window['buildTimestamp']}`,
 		'angular-router': `dist/angular-ui-router/release/angular-ui-router.min.js?${window['buildTimestamp']}`,
 		'bootstrap': `dist/bootstrap/dist/js/bootstrap.min.js?${window['buildTimestamp']}`,
-		'sockjs': `dist/sockjs-client/dist/sockjs-1.0.3.min.js?${window['buildTimestamp']}`,
+		'sockjs-client': `dist/sockjs-client/dist/sockjs-1.0.3.min.js?${window['buildTimestamp']}`,
 		'domReady': `dist/domReady/domReady.js?${window['buildTimestamp']}`,
 	},
 
@@ -25,4 +25,6 @@ require(['angular', 'domReady!', 'lib/app'], function (angular, document, app) {
 
 	angular.module('gamepad-app', []);
 	angular.bootstrap(document, ['gamepad-app']);
+
+	app.start();
 });

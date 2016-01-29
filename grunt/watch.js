@@ -12,7 +12,7 @@ module.exports = {
 			'<%= typescript.app.src %>',
 			'./typings/**/*.d.ts'
 		],
-		tasks: ['scripts:app'],
+		tasks: ['scripts'],
 		options: {
 			spawn: true
 		}
@@ -22,7 +22,7 @@ module.exports = {
 			'<%= typescript.webapp.src %>',
 			'./typings/**/*.d.ts'
 		],
-		tasks: ['scripts:webapp'],
+		tasks: ['scriptswebapp'],
 		options: {
 			spawn: true
 		}
