@@ -28,14 +28,19 @@ export class Session {
 	public disconnected(): void {
 		console.log(`Session ${this._id} disconnected`);
 
+		let clients = [];
+
 		for (let id in this._clients) {
 			if (!this._clients.hasOwnProperty(id)) {
 				continue;
 			}
 
-			this._clients[id].kicked();
+			clients.push(this._clients[id]);
 		}
 
+		for (let client of clients) {
+			this.left(client);
+		}
 	}
 
 	public join(client: Client): void {
@@ -61,7 +66,7 @@ export class Session {
 			left: client.id
 		}));
 
-		client.kicked();
+		client.kicked(this);
 
 		console.log(`Client ${client.id} disconnected from session ${this._id}`);
 	}

@@ -89,6 +89,10 @@ export class App {
 				this.onJoined(obj.join);
 				break;
 
+			case (obj.kicked !== undefined):
+				this.onKicked(obj.kicked);
+				break;
+
 			case (obj.error !== undefined):
 				console.log(`Received error: ${obj.error}`);
 				break;
@@ -128,6 +132,13 @@ export class App {
 		this.State = State.JOINED;
 		this._root.$state.go('game');
 		console.log(`Joined to session ${id}`);
+	}
+
+	private onKicked(id) {
+
+		this.State = State.CONNECTED;
+		this._root.$state.go('login');
+		console.log(`Kicked from session ${id}`);
 	}
 
 	public get State(): State {

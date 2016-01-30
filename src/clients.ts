@@ -94,10 +94,13 @@ export class Client {
 		this._session.fire(this);
 	}
 
-	public kicked(): void {
+	public kicked(session: Session): void {
+
+		this._conn.write(JSON.stringify({
+			kicked: session.id
+		}));
 
 		if (this._session) {
-			this._session.left(this);
 			this._session = null;
 		}
 
