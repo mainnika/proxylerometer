@@ -13,10 +13,25 @@ export class App {
 		this._sensors = new Accelerometer();
 
 		this._sensors.on('motion', this.onMotion.bind(this));
+		this._socket.onopen = this.onConnected.bind(this);
 	}
 
 	private static vibrate(ms: number): boolean {
 		return navigator['vibrate'](ms);
+	}
+
+	private onConnected() {
+
+		let id = window.location.hash.substr(1);
+
+		if (!id)
+			return;
+
+		alert(id);
+
+		this._socket.send(JSON.stringify({
+			join: id
+		}))
 	}
 
 	private onMotion(motion: IMotionEvent) {
@@ -28,7 +43,9 @@ export class App {
 			App.vibrate(50);
 		}
 
-		this._socket.send(JSON.stringify(motion));
+		this._socket.send(JSON.stringify({
+			input: motion
+		}));
 	}
 }
 

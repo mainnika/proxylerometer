@@ -22,7 +22,7 @@ class __Globals {
 	}
 }
 
-export var Globals = null;
+export var Globals: __Globals = null;
 export function initGlobals(init: IGlobals) {
 	Globals = new __Globals(init);
 }

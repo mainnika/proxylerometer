@@ -24,8 +24,12 @@ app.use(express.static('webapp'));
 let server = http.createServer();
 server.on('request', app);
 
-let wss = sockjs.createServer(sockjs_opts);
-wss.installHandlers(server, {prefix: '/connect'});
-wss.on('connection', clients.createConnection.bind(clients));
+let wssClients = sockjs.createServer(sockjs_opts);
+wssClients.installHandlers(server, {prefix: '/connect'});
+wssClients.on('connection', clients.createConnection.bind(clients));
+
+let wssGame = sockjs.createServer(sockjs_opts);
+wssGame.installHandlers(server, {prefix: '/game'});
+wssGame.on('connection', sessions.createSession.bind(sessions));
 
 server.listen(9000, '0.0.0.0');

@@ -1,9 +1,12 @@
 import * as sockjs from "sockjs";
+import {Globals} from './globals';
+import {Session} from './sessions';
 
 export class Client {
 
 	private _conn: sockjs.Connection;
 	private _id: number;
+	private _session: Session;
 
 	constructor(conn: sockjs.Connection, id: number) {
 
@@ -11,6 +14,8 @@ export class Client {
 		this._id = id;
 
 		this._conn.on('data', this.onMessage.bind(this));
+
+		console.log(`Client ${this._id} connected`);
 	}
 
 	public onMessage(message: string): void {
@@ -21,6 +26,69 @@ export class Client {
 		catch (err) {
 			return;
 		}
+
+		switch (true) {
+			case (obj.join !== undefined):
+				this.joinSession(obj.join);
+				break;
+
+			case (obj.input !== undefined):
+				this.receiveInput(obj.input);
+				break;
+
+			default:
+				this._conn.write(JSON.stringify({
+					error: "unknow"
+				}));
+				return;
+		}
+	}
+
+	private joinSession(id: string): void {
+
+		console.log(`Client ${this._id} want to join session ${id}`);
+
+		if (this._session) {
+			this._conn.write(JSON.stringify({
+				error: "already joined"
+			}));
+			return;
+		}
+
+		let session: Session = Globals.sessions.getSession(id);
+
+		if (!session) {
+			this._conn.write(JSON.stringify({
+				error: "not found"
+			}));
+			return;
+		}
+
+		session.join(this);
+		this._session = session;
+
+		this._conn.write(JSON.stringify({
+			joined: session.id
+		}));
+	}
+
+	private receiveInput(input: any): void {
+
+		if (!this._session)
+			return;
+
+		this._session.input(this, input);
+	}
+
+	public disconnected(): void {
+
+		this._conn.close();
+
+		if (this._session) {
+			this._session.left(this);
+		}
+
+		console.log(`Client ${this._id} disconnected`);
 	}
 
 	public get conn(): sockjs.Connection {
@@ -54,6 +122,8 @@ export class Clients {
 	}
 
 	public removeConnection(client: Client) {
+
+		client.disconnected();
 
 		let id: number = client.id;
 
