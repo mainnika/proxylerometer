@@ -36,6 +36,10 @@ export class Client {
 				this.receiveInput(obj.input);
 				break;
 
+			case (obj.fire !== undefined):
+				this.receiveFire();
+				break;
+
 			default:
 				this._conn.write(JSON.stringify({
 					error: "unknow"
@@ -74,10 +78,30 @@ export class Client {
 
 	private receiveInput(input: any): void {
 
-		if (!this._session)
+		if (!this._session) {
 			return;
+		}
 
 		this._session.input(this, input);
+	}
+
+	private receiveFire(): void {
+
+		if (!this._session) {
+			return;
+		}
+
+		this._session.fire(this);
+	}
+
+	public kicked(): void {
+
+		if (this._session) {
+			this._session.left(this);
+			this._session = null;
+		}
+
+		console.log(`Client ${this._id} kicked`);
 	}
 
 	public disconnected(): void {
@@ -86,6 +110,7 @@ export class Client {
 
 		if (this._session) {
 			this._session.left(this);
+			this._session = null;
 		}
 
 		console.log(`Client ${this._id} disconnected`);

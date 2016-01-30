@@ -10,9 +10,14 @@ module.exports = {
 	"markup": [
 		"jade"
 	],
+	"styles": [
+		"sass-build-timestamp",
+		"sass"
+	],
 	"markup-styles": [
 		"build-timestamp",
-		"markup"
+		"markup",
+		"styles"
 	],
 	'default': [
 		'concurrent'

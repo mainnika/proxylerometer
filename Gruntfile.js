@@ -26,4 +26,9 @@ module.exports = function (grunt) {
 	//		done();
 	//	});
 	//});
+
+	grunt.registerTask('sass-build-timestamp', function () {
+		grunt.file.write('webapp/css/build-timestamp.scss', '$buildTimestamp: ' + grunt.config.get('buildTimestamp') + ';');
+	});
+
 };

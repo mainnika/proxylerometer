@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NCP</title>
+    <title>Megedagik</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript">window.buildTimestamp = 1454091391420;</script>
-    <script type="text/javascript" src="js/dist/requirejs/require.js?1454091391420" data-main="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="js/dist/bootstrap/dist/css/bootstrap.min.css?1454188357723">
+    <link rel="stylesheet" type="text/css" href="css/main.css?1454188357723">
+    <script type="text/javascript">window.buildTimestamp = 1454188357723;</script>
+    <script type="text/javascript" src="js/dist/requirejs/require.js?1454188357723" data-main="js/main.js"></script>
   </head>
   <body>
-    <div>{{ 'wat?' }}</div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header"><a href="#" class="navbar-brand">{{ 'Megedagik stick!' }}</a></div>
+      </div>
+    </nav><br>
+    <ui-view></ui-view>
   </body>
 </html>

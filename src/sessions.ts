@@ -10,7 +10,7 @@ export class Session {
 	constructor(conn: sockjs.Connection) {
 
 		this._conn = conn;
-		this._id = `${~~(Math.random() * 10)}`;
+		this._id = `${~~(Math.random() * 100)}`;
 		this._clients = {};
 
 		this._conn.write(JSON.stringify({
@@ -23,6 +23,19 @@ export class Session {
 	public get id(): string {
 
 		return this._id;
+	}
+
+	public disconnected(): void {
+		console.log(`Session ${this._id} disconnected`);
+
+		for (let id in this._clients) {
+			if (!this._clients.hasOwnProperty(id)) {
+				continue;
+			}
+
+			this._clients[id].kicked();
+		}
+
 	}
 
 	public join(client: Client): void {
@@ -48,6 +61,8 @@ export class Session {
 			left: client.id
 		}));
 
+		client.kicked();
+
 		console.log(`Client ${client.id} disconnected from session ${this._id}`);
 	}
 
@@ -57,6 +72,15 @@ export class Session {
 			input: {
 				id: client.id,
 				motion: input,
+			}
+		}));
+	}
+
+	public fire(client: Client): void {
+
+		this._conn.write(JSON.stringify({
+			fire: {
+				id: client.id,
 			}
 		}));
 	}
@@ -73,6 +97,18 @@ export class Sessions {
 
 		let session: Session = new Session(conn);
 		this._sessions[session.id] = session;
+
+		conn.on('close', this.removeSession.bind(this, session));
+	}
+
+	public removeSession(session: Session): void {
+
+		session.disconnected();
+
+		let id: string = session.id;
+
+		delete this._sessions[id];
+
 	}
 
 	public getSession(id: string): Session {

@@ -22,10 +22,7 @@ require.config({
 	}
 });
 
-require(['angular', 'domReady!', 'lib/app'], function (angular, document, app) {
-
-	angular.module('gamepad-app', []);
-	angular.bootstrap(document, ['gamepad-app']);
+require(['angular', 'angular-router', 'domReady!', 'lib/app'], function (angular, router, document, app) {
 
 	navigator['vibrate'] = navigator['vibrate'] ||
 		navigator['webkitVibrate'] ||

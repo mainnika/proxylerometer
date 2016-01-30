@@ -28,7 +28,7 @@ module.exports = {
 		}
 	},
 	'markup-styles': {
-		files: ['webapp/index.jade', 'webapp/includes/**/*.jade'],
+		files: ['webapp/index.jade', 'webapp/includes/**/*.jade', 'webapp/css/**/*.scss'],
 		tasks: ['markup-styles'],
 		options: {
 			spawn: false
