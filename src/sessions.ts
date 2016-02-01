@@ -7,10 +7,10 @@ export class Session {
 	private _conn: sockjs.Connection;
 	private _clients: {[id: number]: Client};
 
-	constructor(conn: sockjs.Connection) {
+	constructor(conn: sockjs.Connection, id: string) {
 
 		this._conn = conn;
-		this._id = `${~~(Math.random() * 100)}`;
+		this._id = id;
 		this._clients = {};
 
 		this._conn.write(JSON.stringify({
@@ -98,9 +98,23 @@ export class Sessions {
 	constructor() {
 	}
 
+	public generateSessionId(): string {
+
+		let tryNumber = '';
+		let newId = '';
+
+		do {
+			newId = `${tryNumber}${~~(Math.random() * 10) + 1}`;
+			tryNumber = `${~~(Math.random() * 10) + 1}${tryNumber}`;
+
+		} while (this._sessions[newId]);
+
+		return newId;
+	}
+
 	public createSession(conn: sockjs.Connection) {
 
-		let session: Session = new Session(conn);
+		let session: Session = new Session(conn, this.generateSessionId());
 		this._sessions[session.id] = session;
 
 		conn.on('close', this.removeSession.bind(this, session));
