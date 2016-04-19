@@ -11,7 +11,13 @@ html
         link(rel="stylesheet" type="text/css" href="css/main.css?#{buildTimestamp}")
 
         script(type="text/javascript") window.buildTimestamp = #{buildTimestamp};
-        script(type="text/javascript" src="js/dist/requirejs/require.js?#{buildTimestamp}" data-main="js/main.js")
+        script(type="text/javascript" src="js/dist/system.js/dist/system.js")
+        
+        script(type='text/javascript').
+            System.config({
+                baseURL: '/js/dist'
+            });
+            System.import('app.js');
 
     body
         nav.navbar.navbar-inverse.navbar-fixed-top

@@ -9,7 +9,7 @@ module.exports = {
 	},
 	app: {
 		files: [
-			'<%= typescript.app.src %>',
+			'<%= ts.app.src %>',
 			'./typings/**/*.d.ts'
 		],
 		tasks: ['scripts'],
@@ -19,7 +19,7 @@ module.exports = {
 	},
 	webapp: {
 		files: [
-			'<%= typescript.webapp.src %>',
+			'<%= ts.webapp.src %>',
 			'./typings/**/*.d.ts'
 		],
 		tasks: ['scriptswebapp'],

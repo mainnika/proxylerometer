@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	index: {
+	webapp: {
 		options: {
 			pretty: true,
 			data: {

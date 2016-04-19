@@ -1,6 +1,6 @@
 import * as angular from "angular";
-import {Accelerometer, IMotionEvent} from "lib/accelerometer";
-import {App, State} from "lib/app";
+import {Accelerometer, IMotionEvent} from "../accelerometer";
+import {App, State} from "../app";
 
 export class Game {
 

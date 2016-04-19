@@ -1,14 +1,19 @@
 'use strict';
 
 module.exports = {
+    'compile': [
+        'ts:app',
+        'ts:webapp'
+    ],
+    
 	'scripts': [
-		'typescript:app'
+		'ts:app'
 	],
 	'scriptswebapp': [
-		'typescript:webapp'
+		'ts:webapp'
 	],
 	"markup": [
-		"jade"
+		"jade:webapp"
 	],
 	"styles": [
 		"sass-build-timestamp",

@@ -1,7 +1,7 @@
 import * as angular from "angular";
 import * as sockjs from "sockjs-client";
 
-import {App} from "lib/app";
+import {App} from "../app";
 
 export class Login {
 

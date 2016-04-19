@@ -1,9 +1,9 @@
 import * as SockJS from "sockjs-client";
 import * as Angular from "angular";
 
-import {Login as LoginCtrl} from "lib/ctrls/login";
-import {Game as GameCtrl} from "lib/ctrls/game";
-import {IMotionEvent} from "lib/accelerometer";
+import {Login as LoginCtrl} from "./ctrls/login";
+import {Game as GameCtrl} from "./ctrls/game";
+import {IMotionEvent} from "./accelerometer";
 
 export enum State {
 	INIT = 0,

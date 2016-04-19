@@ -2,7 +2,7 @@
 
 module.exports = {
 	options: {
-		sourceMap: true
+		sourcemap: 'inline'
 	},
 	app: {
 		files: {
