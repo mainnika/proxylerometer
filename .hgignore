@@ -19,3 +19,4 @@ webapp/bin/
 tscommand-*.txt
 .sass-cache/
 dist/
+webapp\css\build-timestamp.scss
