@@ -15,10 +15,44 @@ html
         
         script(type='text/javascript').
             System.config({
-                baseURL: '/js/dist'
+                defaultJSExtensions: true,
+                baseURL: '/js/dist',
+                meta: {
+                    'jquery': {
+                        format: 'global',
+                        exports: '$'
+                    },
+                    'angular': {
+                        format: 'global',
+                        exports: 'angular',
+                        deps: ['jquery']
+                    },
+                    'app': {
+                        format: 'register',
+                        exports: 'start',
+                        deps: ['jquery', 'angular']
+                    }
+                },
+                map: {
+                    'jquery': `jquery/dist/jquery.min.js?${window['buildTimestamp']}`,
+                    'angular': `angular/angular.min.js?${window['buildTimestamp']}`,
+                    'angular-router': `angular-ui-router/release/angular-ui-router.min.js?${window['buildTimestamp']}`,
+                    'bootstrap': `bootstrap/dist/js/bootstrap.min.js?${window['buildTimestamp']}`,
+                    'sockjs-client': `sockjs-client/dist/sockjs-1.0.3.min.js?${window['buildTimestamp']}`,
+                    'wolfy87-eventemitter': `eventEmitter/EventEmitter.min.js?${window['buildTimestamp']}`,
+                    'app': 'app.js'
+                }
             });
-            System.import('app.js');
-
+            
+            System.import('jquery');
+            System.import('angular');
+            System.import('angular-router');
+            System.import('bootstrap');
+            System.import('sockjs-client');
+            System.import('wolfy87-eventemitter');
+            System.import('app').then(function(app) {
+                app.start();
+            })
     body
         nav.navbar.navbar-inverse.navbar-fixed-top
             .container

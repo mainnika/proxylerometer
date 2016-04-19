@@ -13,3 +13,8 @@ src/**/*.d.ts
 typings/*/*.d.ts
 
 .idea/
+.tscache/
+typings/
+webapp/bin/
+tscommand-*.txt
+.sass-cache/

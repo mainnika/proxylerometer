@@ -26,7 +26,7 @@ module.exports = {
         options: {
             target: 'ES5',
             sourceMap: true,
-//            module: 'system',
+            module: 'system',
             verbose: true,
             compiler: './node_modules/typescript/lib/tsc.js'
         }

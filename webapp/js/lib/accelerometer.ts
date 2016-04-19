@@ -1,4 +1,4 @@
-import EventEmitter = require("wolfy87-eventemitter");
+import EventEmitter from "wolfy87-eventemitter";
 
 export interface IMotionEvent {
 	y: number,

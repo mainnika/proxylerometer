@@ -1,4 +1,4 @@
-import * as SockJS from "sockjs-client";
+import SockJS from "sockjs-client";
 import * as Angular from "angular";
 
 import {Login as LoginCtrl} from "./ctrls/login";
