@@ -1,4 +1,4 @@
-import * as sockjs from "sockjs";
+import * as sockjs from 'sockjs';
 import {Globals} from './globals';
 import {Session} from './sessions';
 
@@ -42,7 +42,7 @@ export class Client {
 
 			default:
 				this._conn.write(JSON.stringify({
-					error: "unknow"
+					error: 'unknow'
 				}));
 				return;
 		}
@@ -54,7 +54,7 @@ export class Client {
 
 		if (this._session) {
 			this._conn.write(JSON.stringify({
-				error: "already joined"
+				error: 'already joined'
 			}));
 			return;
 		}
@@ -63,7 +63,7 @@ export class Client {
 
 		if (!session) {
 			this._conn.write(JSON.stringify({
-				error: "not found"
+				error: 'not found'
 			}));
 			return;
 		}

@@ -18,3 +18,4 @@ typings/
 webapp/bin/
 tscommand-*.txt
 .sass-cache/
+dist/

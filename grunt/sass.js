@@ -4,9 +4,9 @@ module.exports = {
 	options: {
 		sourcemap: 'inline'
 	},
-	app: {
+	'default': {
 		files: {
-			'webapp/css/main.css': ['webapp/css/main.scss']
+			'dist/web/css/main.css': ['frontend/scss/main.scss']
 		}
 	}
 };

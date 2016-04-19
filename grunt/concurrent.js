@@ -1,5 +1,11 @@
 'use strict';
 
 module.exports = {
-	all: ['scripts', 'scriptswebapp', 'markup-styles']
+    'default': [
+        'backend',
+        'frontend',
+        'html',
+        'styles',
+        'static'
+    ]
 };

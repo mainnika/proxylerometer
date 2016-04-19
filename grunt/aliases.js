@@ -1,29 +1,23 @@
 'use strict';
 
 module.exports = {
-    'compile': [
-        'ts:app',
-        'ts:webapp'
+	'backend': [
+		'ts:backend'
+	],
+    'frontend': [
+        'ts:frontend'
     ],
-    
-	'scripts': [
-		'ts:app'
+    'html': [
+		'build-timestamp',
+		'jade'
+    ],
+	'styles': [
+		'sass-build-timestamp',
+		'sass',
 	],
-	'scriptswebapp': [
-		'ts:webapp'
-	],
-	"markup": [
-		"jade:webapp"
-	],
-	"styles": [
-		"sass-build-timestamp",
-		"sass"
-	],
-	"markup-styles": [
-		"build-timestamp",
-		"markup",
-		"styles"
-	],
+    'static': [
+        'copy'
+    ],
 	'default': [
 		'concurrent'
 	]

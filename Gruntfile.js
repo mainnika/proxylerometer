@@ -30,5 +30,4 @@ module.exports = function (grunt) {
 	grunt.registerTask('sass-build-timestamp', function () {
 		grunt.file.write('webapp/css/build-timestamp.scss', '$buildTimestamp: ' + grunt.config.get('buildTimestamp') + ';');
 	});
-
 };

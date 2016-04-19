@@ -1,4 +1,4 @@
-import * as sockjs from "sockjs";
+import * as sockjs from 'sockjs';
 import {Client} from './clients';
 
 export class Session {

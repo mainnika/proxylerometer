@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	webapp: {
+	'default': {
 		options: {
 			pretty: true,
 			data: {
@@ -10,7 +10,9 @@ module.exports = {
 			}
 		},
 		files: [{
-			src: ['webapp/index.jade', 'webapp/includes/**/*.jade'],
+            cwd: "frontend/jade",
+            src: "**/*.jade",
+            dest: "dist/web",
 			ext: '.html',
 			extDot: 'last',
 			expand: true

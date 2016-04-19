@@ -2,11 +2,12 @@
 
 module.exports = {
 
-    app: {
+    backend: {
         src: [
             'typings/main.d.ts',
-            'src/**/*.ts',
+            'backend/**/*.ts',
         ],
+        outDir: "dist/srv",
         options: {
             target: 'ES6',
             sourceMap: true,
@@ -16,13 +17,12 @@ module.exports = {
         }
     },
 
-    webapp: {
+    frontend: {
         src: [
-            'webapp/js/main.ts',
-            'webapp/js/lib/**/*.ts',
+            'frontend/ts/**/*.ts',
             'typings/browser.d.ts'
         ],
-        out: 'webapp/js/dist/app.js',
+        out: 'dist/web/js/app.js',
         options: {
             target: 'ES5',
             sourceMap: true,

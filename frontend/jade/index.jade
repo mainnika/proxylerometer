@@ -7,16 +7,16 @@ html
         meta(http-equiv="X-UA-Compatible" content="IE=edge")
         meta(name="viewport" content="width=device-width, initial-scale=1")
 
-        link(rel="stylesheet" type="text/css" href="js/dist/bootstrap/dist/css/bootstrap.min.css?#{buildTimestamp}")
+        link(rel="stylesheet" type="text/css" href="js/bootstrap/dist/css/bootstrap.min.css?#{buildTimestamp}")
         link(rel="stylesheet" type="text/css" href="css/main.css?#{buildTimestamp}")
 
         script(type="text/javascript") window.buildTimestamp = #{buildTimestamp};
-        script(type="text/javascript" src="js/dist/system.js/dist/system.js")
+        script(type="text/javascript" src="js/system.js/dist/system.js")
         
         script(type='text/javascript').
             System.config({
                 defaultJSExtensions: true,
-                baseURL: '/js/dist',
+                baseURL: '/js',
                 meta: {
                     'jquery': {
                         format: 'global',
@@ -27,10 +27,18 @@ html
                         exports: 'angular',
                         deps: ['jquery']
                     },
+                    'angular-router': {
+                        format: 'global',
+                        deps: ['angular']
+                    },
+                    'bootstrap': {
+                        format: 'global',
+                        deps: ['jquery']
+                    },
                     'app': {
                         format: 'register',
                         exports: 'start',
-                        deps: ['jquery', 'angular']
+                        deps: ['jquery', 'angular', 'angular-router', 'bootstrap', 'sockjs-client', 'wolfy87-eventemitter']
                     }
                 },
                 map: {
