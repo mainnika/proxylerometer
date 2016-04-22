@@ -4,6 +4,7 @@ import * as Angular from "angular";
 import {Login as LoginCtrl} from "./ctrls/login";
 import {Game as GameCtrl} from "./ctrls/game";
 import {IMotionEvent} from "./accelerometer";
+import Vibrate from "./vibro";
 
 export enum State {
 	INIT = 0,
@@ -92,9 +93,17 @@ export class App {
 			case (obj.kicked !== undefined):
 				this.onKicked(obj.kicked);
 				break;
+				
+			case (obj.hit !== undefined):
+				this.onHit();
+				break;
 
 			case (obj.error !== undefined):
 				console.log(`Received error: ${obj.error}`);
+				break;
+				
+			case (obj.hit !== undefined):
+				this.onHit();
 				break;
 
 			default:
@@ -125,6 +134,12 @@ export class App {
 		this._socket.send(JSON.stringify({
 			fire: true
 		}));
+	}
+	
+	public onHit() {
+
+		console.log('Hit');
+		Vibrate(500);
 	}
 
 	private onJoined(id) {

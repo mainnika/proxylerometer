@@ -14,7 +14,6 @@ export class Game {
 		angular.module('gamepad-app').controller('gameCtrl', ['$scope', ($scope) => {
 
 			$scope.$app = this._app;
-
 			$scope.fire = this._app.onFire.bind(this._app);
 
 			if (this._app.State != State.JOINED) {
