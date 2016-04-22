@@ -17,6 +17,21 @@ module.exports = {
         }
     },
 
+    test: {
+        src: [
+            'typings/main.d.ts',
+            'test/**/*.ts',
+        ],
+        outDir: "dist/test",
+        options: {
+            target: 'ES6',
+            sourceMap: true,
+            module: 'commonjs',
+            verbose: true,
+            compiler: './node_modules/typescript/lib/tsc.js'
+        }
+    },
+
     frontend: {
         src: [
             'frontend/ts/**/*.ts',

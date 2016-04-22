@@ -4,6 +4,9 @@ module.exports = {
 	'backend': [
 		'ts:backend'
 	],
+    'test': [
+        'ts:test'
+    ],
     'frontend': [
         'ts:frontend'
     ],
