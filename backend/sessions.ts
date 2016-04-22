@@ -12,12 +12,35 @@ export class Session {
 		this._conn = conn;
 		this._id = id;
 		this._clients = {};
-
+		
+		this._conn.on('data', this.onMessage.bind(this));
 		this._conn.write(JSON.stringify({
 			id: this._id
 		}));
 
 		console.log(`Session ${this._id} created`);
+	}
+	
+	public onMessage(message: string): void {
+
+		try {
+			var obj: any = JSON.parse(message);
+		}
+		catch (err) {
+			return;
+		}
+
+		switch (true) {
+			case (obj.kicked !== undefined):
+				
+				break;
+
+			default:
+				this._conn.write(JSON.stringify({
+					error: 'unknow'
+				}));
+				return;
+		}
 	}
 
 	public get id(): string {
@@ -88,6 +111,14 @@ export class Session {
 				id: client.id,
 			}
 		}));
+	}
+	
+	private kicked(id: number){
+		let client = this._clients[id];
+		if (!client)
+			return;
+			
+		this.left(client);
 	}
 }
 
