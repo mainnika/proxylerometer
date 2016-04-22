@@ -32,7 +32,11 @@ export class Session {
 
 		switch (true) {
 			case (obj.kicked !== undefined):
+				this.kicked(obj.kicked);
+				break;
 				
+			case (obj.hit !== undefined):
+				this.hit(obj.hit);
 				break;
 
 			default:
@@ -119,6 +123,15 @@ export class Session {
 			return;
 			
 		this.left(client);
+	}
+	
+	private hit(id: number){
+		
+		let client = this._clients[id];
+		if (!client)
+			return;
+			
+		client.hit();
 	}
 }
 

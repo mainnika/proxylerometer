@@ -107,6 +107,13 @@ export class Client {
 		console.log(`Client ${this._id} kicked`);
 	}
 
+	public hit(): void {
+
+		this._conn.write(JSON.stringify({
+			hit: true
+		}));
+	}
+
 	public disconnected(): void {
 
 		this._conn.close();
