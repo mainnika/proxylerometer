@@ -1,14 +1,14 @@
 {
-  "ambientDependencies": {
-    "angular": "registry:dt/angular#1.5.0+20160412133217",
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20160614091201",
     "express": "registry:dt/express#4.0.0+20160317120654",
-    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
-    "jquery": "registry:dt/jquery#1.10.0+20160316155526",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160602151406",
+    "jquery": "registry:dt/jquery#1.10.0+20160417213236",
     "mime": "registry:dt/mime#0.0.0+20160316155526",
-    "node": "registry:dt/node#4.0.0+20160412142033",
-    "serve-static": "registry:dt/serve-static#0.0.0+20160317120654",
+    "node": "registry:dt/node#6.0.0+20160613154055",
+    "serve-static": "registry:dt/serve-static#0.0.0+20160606155157",
     "sockjs-client": "registry:dt/sockjs-client#1.0.3+20160316155526",
     "sockjs-node": "registry:dt/sockjs-node#0.3.0+20160316155526",
-    "wolfy87-eventemitter": "registry:dt/wolfy87-eventemitter#4.2.9+20160317120654"
+    "wolfy87-eventemitter": "registry:dt/wolfy87-eventemitter#4.2.9+20160524142429"
   }
 }

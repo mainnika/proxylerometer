@@ -4,7 +4,7 @@ module.exports = {
 
     backend: {
         src: [
-            'typings/main.d.ts',
+            'typings/index.d.ts',
             'backend/**/*.ts',
         ],
         outDir: "dist/srv",
@@ -19,7 +19,7 @@ module.exports = {
 
     test: {
         src: [
-            'typings/main.d.ts',
+            'typings/index.d.ts',
             'test/**/*.ts',
         ],
         outDir: "dist/test",
@@ -35,7 +35,7 @@ module.exports = {
     frontend: {
         src: [
             'frontend/ts/**/*.ts',
-            'typings/browser.d.ts'
+            'typings/index.d.ts'
         ],
         out: 'dist/web/js/app.js',
         options: {
