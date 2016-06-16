@@ -1,12 +1,12 @@
 {
   "name": "proxylerometer",
   "dependencies": {
-    "angular": "^1.4.9",
-    "jquery": "^2.2.0",
-    "sockjs-client": "^1.0.3",
+    "angular": "^1.5.7",
+    "jquery": "^3.0.0",
+    "sockjs-client": "^1.1.1",
     "bootstrap": "^3.3.6",
-    "angular-ui-router": "^0.2.18",
-    "eventEmitter": "^4.3.0",
-    "system.js": "^0.19.26"
+    "angular-ui-router": "^0.3.1",
+    "eventEmitter": "^5.1.0",
+    "system.js": "^0.19.31"
   }
 }

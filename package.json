@@ -20,13 +20,13 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jade": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-ts": "^5.4.0",
-    "load-grunt-config": "^0.19.1",
+    "grunt-ts": "^5.5.1",
+    "load-grunt-config": "^0.19.2",
     "load-grunt-tasks": "^3.5.0",
     "typescript": "^1.8.10"
   },
   "dependencies": {
-    "express": "^4.13.4",
-    "sockjs": "^0.3.16"
+    "express": "^4.14.0",
+    "sockjs": "^0.3.17"
   }
 }
